@@ -1,8 +1,8 @@
 import Image from 'next/image';
 
-import Layout from '../components/layout';
-import Link from '../components/link-button';
-import Title from '../components/title';
+import Layout from './layout';
+import Link from './link-button';
+import Title from './title';
 
 export default function Series({ name, seasons }) {
   return (

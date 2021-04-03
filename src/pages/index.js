@@ -1,10 +1,10 @@
 import Head from 'next/head';
 
 import Layout from '../components/layout';
+import Series from '../components/series';
 import Title from '../components/title';
 import { fetchSeries } from '../lib/fetchers';
 import { groupBy } from '../lib/utils';
-import Series from './series';
 
 const groupEpisodesBySeason = (episodes) => groupBy(episodes, 'season');
 
