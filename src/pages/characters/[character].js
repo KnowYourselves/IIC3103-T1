@@ -1,6 +1,6 @@
 import Layout from '../../components/layout';
+import ListSeasons from '../../components/list-seasons';
 import fetcher from '../../lib/fetchers';
-import ListSeasons from './list-seasons';
 
 export const getServerSideProps = async ({ params }) => {
   const { character: characterId } = params;
