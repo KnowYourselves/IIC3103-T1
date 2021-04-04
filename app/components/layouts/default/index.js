@@ -1,6 +1,6 @@
 import cn from 'classnames';
 
-export default function Layout({ children, home, className: classes }) {
+export default function DefaultLayout({ children, home, className: classes }) {
   const className = cn({
     'mx-auto': true,
     'py-6': true,

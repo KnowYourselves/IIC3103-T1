@@ -2,6 +2,19 @@
   "settings": {
     "react": {
       "version": "detect"
+    },
+    "import/resolver": {
+      "alias": {
+        "map": [
+          ["@/elements", "./app/components/elements/"],
+          ["@/layouts", "./app/components/layouts/"],
+          ["@/modules", "./app/components/modules/"],
+          ["@/templates", "./app/components/templates/"],
+          ["@/styles", "./app/styles/"],
+          ["@/utils", "./app/utils"]
+        ],
+        "extensions": [".js"]
+      }
     }
   },
   "env": {

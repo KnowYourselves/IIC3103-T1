@@ -1,5 +1,5 @@
-import Layout from './layout';
-import Link from './link-button';
+import Link from '@/elements/link-button';
+import Layout from '@/layouts/default';
 
 export default function ListSeasons({ seasons, series }) {
   if (!seasons || seasons.length === 0) {
