@@ -1,5 +1,4 @@
-import Link from '@/elements/link-button';
-import Layout from '@/layouts/default';
+import Season from '@/templates/season';
 import { fetchSeries } from '@/utils/fetchers';
 
 const filterEpisodesBySeason = (episodes, season) => (
@@ -8,14 +7,15 @@ const filterEpisodesBySeason = (episodes, season) => (
 
 export const getServerSideProps = async ({ params }) => {
   const { series, season } = params;
-  const allEpisodes = await fetchSeries('/episodes', series);
-  const episodes = filterEpisodesBySeason(allEpisodes, season);
 
   if (!series || !season) {
     return {
       notFound: true,
     };
   }
+
+  const allEpisodes = await fetchSeries('/episodes', series);
+  const episodes = filterEpisodesBySeason(allEpisodes, season);
 
   return {
     props: {
@@ -26,14 +26,8 @@ export const getServerSideProps = async ({ params }) => {
   };
 };
 
-export default function Season({ series, season, episodes }) {
-  return (
-    <Layout>
-      {episodes.map((episode) => (
-        <div key={episode.episode_id}>
-          <Link href={`/${series}/${season}/${episode.episode_id}`} label={episode.title} />
-        </div>
-      ))}
-    </Layout>
-  );
-}
+const SeasonPage = ({ series, season, episodes }) => (
+  <Season series={series} season={season} episodes={episodes} />
+);
+
+export default SeasonPage;

@@ -1,5 +1,4 @@
-import Link from '@/elements/link-button';
-import Layout from '@/layouts/default';
+import Episode from '@/templates/episode';
 import fetcher, { fetchCharacterByName } from '@/utils/fetchers';
 
 export const getServerSideProps = async ({ params }) => {
@@ -26,23 +25,8 @@ export const getServerSideProps = async ({ params }) => {
   };
 };
 
-export default function Episode({ episode, characters }) {
-  return (
-    <Layout>
-      <p>{episode?.title}</p>
-      <p>{episode?.air_date}</p>
-      {characters.map((character, index) => (
-        <Link
-          // eslint-disable-next-line react/no-array-index-key
-          key={index + character.name}
-          href={{
-            pathname: '/characters/[id]',
-            query: { id: character.char_id || -1 },
-          }}
-          disabled={!character.char_id}
-          label={character.name}
-        />
-      ))}
-    </Layout>
-  );
-}
+const EpisodePage = ({ episode, characters }) => (
+  <Episode episode={episode} characters={characters} />
+);
+
+export default EpisodePage;
