@@ -1,6 +1,6 @@
 import cn from 'classnames';
 
-export default function DefaultLayout({ children, home, className: classes }) {
+const DefaultLayout = ({ children, home, className: classes }) => {
   const className = cn({
     'mx-auto': true,
     'py-6': true,
@@ -12,4 +12,6 @@ export default function DefaultLayout({ children, home, className: classes }) {
       <div className={className}>{children}</div>
     </div>
   );
-}
+};
+
+export default DefaultLayout;

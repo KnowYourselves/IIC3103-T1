@@ -1,7 +1,7 @@
 import Link from '@/elements/link-button';
 import Layout from '@/layouts/default';
 
-export default function ListSeasons({ seasons, series }) {
+const ListSeasons = ({ seasons, series }) => {
   if (!seasons || seasons.length === 0) {
     return (
       <>
@@ -19,4 +19,6 @@ export default function ListSeasons({ seasons, series }) {
       ))}
     </Layout>
   );
-}
+};
+
+export default ListSeasons;

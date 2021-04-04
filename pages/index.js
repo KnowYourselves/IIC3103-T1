@@ -1,22 +1,18 @@
 import Home from '@/templates/home';
-import { fetchSeries } from '@/utils/fetchers';
+import fetcher from '@/utils/fetchers';
 import groupBy from '@/utils/group-by';
 
-const groupEpisodesBySeason = (episodes) => groupBy(episodes, 'season');
-
 export const getServerSideProps = async () => {
-  const breakingBad = await fetchSeries('/episodes', 'Better Call Saul');
-  const betterCallSaul = await fetchSeries('/episodes', 'Breaking Bad');
-
-  const bbSeasons = groupEpisodesBySeason(breakingBad);
-  const bcsSeason = groupEpisodesBySeason(betterCallSaul);
+  const episodes = await fetcher('/episodes');
+  const seriesNames = new Set(episodes.map((episode) => episode.series));
+  const series = [...seriesNames].map((name) => ({
+    name,
+    seasons: groupBy(episodes.filter((episode) => episode.series === name), 'season'),
+  }));
 
   return {
     props: {
-      series: [
-        { name: 'Breaking Bad', seasons: bcsSeason },
-        { name: 'Better Call Saul', seasons: bbSeasons },
-      ],
+      series,
     },
   };
 };
