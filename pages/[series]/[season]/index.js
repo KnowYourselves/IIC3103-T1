@@ -1,6 +1,6 @@
-import Layout from '../../../components/layout';
-import Link from '../../../components/link-button';
-import { fetchSeries } from '../../../lib/fetchers';
+import Link from '@/elements/link-button';
+import Layout from '@/layouts/default';
+import { fetchSeries } from '@/utils/fetchers';
 
 const filterEpisodesBySeason = (episodes, season) => (
   episodes.filter((episode) => episode.season === season)
