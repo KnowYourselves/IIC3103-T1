@@ -2,10 +2,6 @@
 @tailwind base;
 @tailwind utilities;
 
-body {
-  @apply bg-gray-200;
-}
-
 #nprogress .bar {
   background: rgb(209, 250, 229) !important;
 }
