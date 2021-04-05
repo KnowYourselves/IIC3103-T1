@@ -14,6 +14,7 @@ export const getServerSideProps = async ({ params }) => {
 
   const character = (await fetcher(`/characters/${characterId}`))[0];
   character.quotes = await fetcher(`/quote?author=${character.name}`);
+  character.occupation = character.occupation.join(', ');
 
   return {
     props: {

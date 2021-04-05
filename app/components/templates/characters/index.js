@@ -1,15 +1,30 @@
 import Link from '@/elements/link-button';
 
 const Characters = ({ characters }) => (
-  <div>
-    {characters.map((character) => (
-      <Link
-        key={character.char_id}
-        href={`/characters/${character.char_id}`}
-        label={character.name}
-      />
-    ))}
-  </div>
+  <>
+    {characters.length
+      ? (
+        <div className="flex flex-wrap justify-between">
+          {characters.map((character) => (
+            <div
+              className="flex flex-col justify-center mb-4"
+              key={character.char_id}
+            >
+              <Link
+                href={`/characters/${character.char_id}`}
+                label={character.name}
+              />
+            </div>
+          ))}
+        </div>
+      )
+      : (
+        <div className="flex flex-col items-center justify-center flex-grow space-y-2 text-xl text-gray-600 sm:text-4xl">
+          <p>No results where found</p>
+          <p>:(</p>
+        </div>
+      )}
+  </>
 );
 
 export default Characters;

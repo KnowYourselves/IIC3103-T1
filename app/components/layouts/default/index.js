@@ -2,9 +2,9 @@ import cn from 'classnames';
 
 const DefaultLayout = ({ children, home }) => {
   const className = cn({
-    'mx-auto': true,
-    'py-3 sm:py-6': true,
+    'mx-auto mb-1 px-2 py-1 sm:py-6': true,
     container: home,
+    flex: home,
     'flex-grow': true,
   });
 
