@@ -9,7 +9,7 @@ const DarkmodeSwitch = () => {
 
   return (
     <div
-      className="relative w-12 h-auto px-2 py-2 transition duration-500 bg-gray-200 group rounded-3xl hover:bg-gray-600 hover:text-white"
+      className="relative w-10 h-auto px-1 py-1 transition duration-500 bg-gray-200 group rounded-3xl hover:bg-gray-600 hover:text-white"
       onClick={() => setIsDark((current) => !current)}
     >
       {isDark

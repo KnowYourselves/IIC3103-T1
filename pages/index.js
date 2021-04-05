@@ -1,3 +1,5 @@
+import Head from 'next/head';
+
 import Home from '@/templates/home';
 import fetcher from '@/utils/fetchers';
 import groupBy from '@/utils/group-by';
@@ -18,7 +20,12 @@ export const getServerSideProps = async () => {
 };
 
 const HomePage = ({ series }) => (
-  <Home series={series} />
+  <>
+    <Head>
+      <title>NextFlix</title>
+    </Head>
+    <Home series={series} />
+  </>
 );
 
 export default HomePage;

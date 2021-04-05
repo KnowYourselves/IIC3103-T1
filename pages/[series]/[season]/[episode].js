@@ -1,5 +1,7 @@
+import Head from 'next/head';
+
 import Episode from '@/templates/episode';
-import fetcher, { fetchCharacterByName } from '@/utils/fetchers';
+import fetcher from '@/utils/fetchers';
 
 export const getServerSideProps = async ({ params }) => {
   const { episode: episodeId } = params;
@@ -12,7 +14,7 @@ export const getServerSideProps = async ({ params }) => {
 
   const episode = (await fetcher(`/episodes/${episodeId}`))[0];
   const characters = await Promise.all(episode.characters.map((name) => (
-    fetchCharacterByName(name).then((character) => (
+    fetcher(`/characters?name=${name}`).then((character) => (
       character.length === 0 ? { name: 'No encontrado' } : character[0]
     ))
   )));
@@ -26,7 +28,12 @@ export const getServerSideProps = async ({ params }) => {
 };
 
 const EpisodePage = ({ episode, characters }) => (
-  <Episode episode={episode} characters={characters} />
+  <>
+    <Head>
+      <title>{episode.title}</title>
+    </Head>
+    <Episode episode={episode} characters={characters} />
+  </>
 );
 
 export default EpisodePage;

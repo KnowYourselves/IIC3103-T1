@@ -5,19 +5,6 @@ const getRequest = {
   method: 'GET',
 };
 
-const fetchSeries = (url, series) => (
-  axios({ ...getRequest, url, params: { series } }).then((res) => res.data)
-);
-
-const fetchCharacterByName = (name) => (
-  axios({ ...getRequest, url: '/characters', params: { name } }).then((res) => res.data)
-);
-
 const fetcher = (url) => axios({ ...getRequest, url }).then((res) => res.data);
-
-export {
-  fetchCharacterByName,
-  fetchSeries,
-};
 
 export default fetcher;

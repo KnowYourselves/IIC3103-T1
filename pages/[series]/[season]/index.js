@@ -1,5 +1,7 @@
+import Head from 'next/head';
+
 import Season from '@/templates/season';
-import { fetchSeries } from '@/utils/fetchers';
+import fetcher from '@/utils/fetchers';
 
 const filterEpisodesBySeason = (episodes, season) => (
   episodes.filter((episode) => episode.season === season)
@@ -14,7 +16,8 @@ export const getServerSideProps = async ({ params }) => {
     };
   }
 
-  const allEpisodes = await fetchSeries('/episodes', series);
+  const allEpisodes = await fetcher(`/episodes?series=${series}`);
+
   const episodes = filterEpisodesBySeason(allEpisodes, season);
 
   return {
@@ -27,7 +30,12 @@ export const getServerSideProps = async ({ params }) => {
 };
 
 const SeasonPage = ({ series, season, episodes }) => (
-  <Season series={series} season={season} episodes={episodes} />
+  <>
+    <Head>
+      <title>{series}</title>
+    </Head>
+    <Season series={series} season={season} episodes={episodes} />
+  </>
 );
 
 export default SeasonPage;

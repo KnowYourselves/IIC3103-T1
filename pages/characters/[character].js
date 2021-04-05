@@ -1,3 +1,5 @@
+import Head from 'next/head';
+
 import Character from '@/templates/characters/character';
 import fetcher from '@/utils/fetchers';
 
@@ -11,6 +13,7 @@ export const getServerSideProps = async ({ params }) => {
   }
 
   const character = (await fetcher(`/characters/${characterId}`))[0];
+  character.quotes = await fetcher(`/quote?author=${character.name}`);
 
   return {
     props: {
@@ -20,7 +23,12 @@ export const getServerSideProps = async ({ params }) => {
 };
 
 const CharacterPage = ({ character }) => (
-  <Character character={character} />
+  <>
+    <Head>
+      <title>{character.name}</title>
+    </Head>
+    <Character character={character} />
+  </>
 );
 
 export default CharacterPage;
