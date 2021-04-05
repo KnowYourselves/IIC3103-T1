@@ -11,25 +11,27 @@ const Series = ({ name, seasons }) => {
   }
 
   return (
-    <Layout className="bg-gray-100 rounded-md shadow-lg">
-      <Title className="text-2xl">{name}</Title>
-      <div className="my-5 h-96">
-        <div className="relative h-full max-w-full">
-          <Image
-            src={`/images/${imagePath}.png`}
-            alt={imagePath}
-            layout="fill"
-            objectFit="contain"
-            quality={100}
-          />
-        </div>
-      </div>
-      <div className="flex">
-        {Object.keys(seasons).map((seasonId) => (
-          <div className="flex-grow" key={seasonId}>
-            <Link href={`/${name}/${seasonId}`} label={seasonId} />
+    <Layout>
+      <div className="px-4 py-4 space-y-4 bg-gray-300 rounded-lg shadow-x sm:w-96">
+        <Title className="text-2xl font-bold">{name}</Title>
+        <div className="my-5 h-96">
+          <div className="relative h-full max-w-full">
+            <Image
+              src={`/images/${imagePath}.png`}
+              alt={imagePath}
+              layout="fill"
+              objectFit="contain"
+              quality={100}
+            />
           </div>
-        ))}
+        </div>
+        <div className="flex">
+          {Object.keys(seasons).map((seasonId) => (
+            <div className="flex-grow" key={seasonId}>
+              <Link href={`/${name}/${seasonId}`} label={seasonId} />
+            </div>
+          ))}
+        </div>
       </div>
     </Layout>
   );

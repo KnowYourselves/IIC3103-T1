@@ -3,7 +3,7 @@ import Title from '@/elements/title';
 import Layout from '@/layouts/default';
 
 const Season = ({ series, season, episodes }) => (
-  <Layout>
+  <Layout home>
     <div className="space-y-5 text-center">
       <Title>
         {series}

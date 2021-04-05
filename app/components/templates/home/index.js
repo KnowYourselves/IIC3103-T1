@@ -11,12 +11,8 @@ const Home = ({ series }) => (
         <span className="text-green-900">Next</span>
         Flix!
       </Title>
-      <p className="max-h-full px-4 py-2 text-2xl text-black sm:hidden">
-        <span className="text-green-900">Next</span>
-        Flix!
-      </p>
     </div>
-    <div className="flex flex-col flex-wrap justify-around space-y-20 text-center sm:flex-row sm:space-y-0">
+    <div className="flex flex-col flex-wrap justify-around space-y-5 text-center sm:flex-row sm:space-y-0">
       {series.map((show) => (
         <div
           key={show.name}
