@@ -15,7 +15,7 @@ const ListSeasons = ({ seasons, series }) => {
       <p className="mb-2">{series}</p>
       <div className="space-x-1">
         {seasons?.map((seasonId) => (
-          <Link key={seasonId} href={`/${series}/${seasonId}`} label={seasonId} />
+          <Link home key={seasonId} href={`/${series}/${seasonId}`} label={seasonId} />
         ))}
       </div>
     </div>

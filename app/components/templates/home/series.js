@@ -28,7 +28,7 @@ const Series = ({ name, seasons }) => {
         <div className="flex">
           {Object.keys(seasons).map((seasonId) => (
             <div className="flex-grow" key={seasonId}>
-              <Link href={`/${name}/${seasonId}`} label={seasonId} />
+              <Link home href={`/${name}/${seasonId}`} label={seasonId} />
             </div>
           ))}
         </div>

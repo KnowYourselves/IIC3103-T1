@@ -19,7 +19,7 @@ const Characters = ({ characters }) => (
         </div>
       )
       : (
-        <div className="flex flex-col items-center justify-center flex-grow space-y-2 text-xl text-gray-600 sm:text-4xl">
+        <div className="flex flex-col items-center justify-center flex-grow space-y-2 text-2xl text-gray-600 sm:text-5xl">
           <p>No results where found</p>
           <p>:(</p>
         </div>

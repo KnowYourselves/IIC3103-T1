@@ -2,13 +2,19 @@ import Link from 'next/link';
 import { forwardRef } from 'react';
 
 const InnerLink = forwardRef(({
-  onClick, href, label, disabled,
+  href, label, disabled, home,
 }, ref) => {
-  const style = 'bg-green-900 dark:bg-gray-900 hover:bg-green-700 text-white font-bold py-2 px-4 rounded';
+  const lightStyle = 'bg-green-900 hover:bg-green-700 text-white font-bold py-2 px-4 rounded';
+  let darkStyle;
+  if (home) {
+    darkStyle = 'dark:bg-gray-900 dark:hover:bg-gray-700';
+  } else {
+    darkStyle = 'dark:bg-gray-700 dark:hover:bg-gray-800';
+  }
 
   if (disabled) {
     return (
-      <span className={style}>
+      <span className={`${lightStyle} ${darkStyle}`}>
         {label}
       </span>
     );
@@ -16,9 +22,8 @@ const InnerLink = forwardRef(({
 
   return (
     <a
-      className={style}
+      className={`${lightStyle} ${darkStyle}`}
       href={href}
-      onClick={onClick}
       ref={ref}
     >
       {label}
@@ -27,10 +32,12 @@ const InnerLink = forwardRef(({
 });
 
 const LinkButton = (props) => {
-  const { label, disabled, ...linkProps } = props;
+  const {
+    label, disabled, home, ...linkProps
+  } = props;
   return (
     <Link {...linkProps} passHref>
-      <InnerLink disabled={disabled} label={label} />
+      <InnerLink disabled={disabled} label={label} home={home} />
     </Link>
   );
 };
