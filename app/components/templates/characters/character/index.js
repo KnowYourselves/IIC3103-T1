@@ -1,11 +1,12 @@
 import Layout from '@/layouts/default';
 
 import Characteristics from './components/characteristics';
-import ListSeasons from './components/list-seasons';
+import Quotes from './components/quotes';
+import Series from './components/series';
 
 const Character = ({ character }) => (
   <Layout>
-    <div className="py-4 space-y-5 bg-gray-300 rounded-lg shadow-xl">
+    <div className="px-4 py-4 space-y-5 bg-gray-300 rounded-lg shadow-xl">
       <div className="flex flex-col space-y-5 text-center sm:space-y-0 sm:flex-row">
         <div>
           <img
@@ -16,15 +17,8 @@ const Character = ({ character }) => (
         </div>
         <Characteristics character={character} />
       </div>
-      <div className="flex justify-center space-x-12">
-        <ListSeasons seasons={character.appearance} series="Breaking Bad" />
-        <ListSeasons seasons={character.better_call_saul_appearance} series="Better Call Saul" />
-      </div>
-      {character.quotes.map((quote) => (
-        <p key={quote.quote_id}>
-          {quote.quote}
-        </p>
-      ))}
+      <Series character={character} />
+      <Quotes character={character} />
     </div>
   </Layout>
 );
