@@ -4,7 +4,7 @@ import { forwardRef } from 'react';
 const InnerLink = forwardRef(({
   onClick, href, label, disabled,
 }, ref) => {
-  const style = 'bg-green-900 hover:bg-green-700 text-white font-bold py-2 px-4 rounded';
+  const style = 'bg-green-900 dark:bg-gray-900 hover:bg-green-700 text-white font-bold py-2 px-4 rounded';
 
   if (disabled) {
     return (

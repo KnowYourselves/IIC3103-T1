@@ -12,7 +12,7 @@ const Series = ({ name, seasons }) => {
 
   return (
     <Layout>
-      <div className="px-4 py-4 space-y-4 bg-gray-300 rounded-lg shadow-x sm:w-96">
+      <div className="px-4 py-4 space-y-4 bg-gray-300 rounded-lg dark:bg-gray-800 shadow-x sm:w-96">
         <Title className="text-2xl font-bold">{name}</Title>
         <div className="my-5 h-96">
           <div className="relative h-full max-w-full">

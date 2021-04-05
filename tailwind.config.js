@@ -5,7 +5,11 @@ module.exports = {
   ],
   variants: {
     extend: {
-      textColor: ['group-focus'],
+      transitionProperty: ['hover', 'focus', 'dark'],
+      transitionDuration: ['hover', 'focus', 'dark'],
+      transitionTimingFunction: ['hover', 'focus', 'dark'],
+      ringWidth: ['dark'],
     },
   },
+  darkMode: 'class',
 };

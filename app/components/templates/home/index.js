@@ -8,7 +8,7 @@ const Home = ({ series }) => (
       <Title className="hidden text-6xl sm:block">
         Welcome to
         {' '}
-        <span className="text-green-900">Next</span>
+        <span className="text-green-900 dark:text-green-300">Next</span>
         Flix!
       </Title>
     </div>
