@@ -1,8 +1,10 @@
+import Title from '@/elements/title';
+
 const Characteristics = ({ character }) => (
-  <div className="flex flex-col justify-center flex-grow mx-6 align-middle border-2 border-green-900 rounded-lg">
-    <div className="mb-8 text-3xl font-bold text-center">
-      <p>Characteristics</p>
-    </div>
+  <div className="flex flex-col justify-center flex-grow py-2 align-middle border-2 border-green-900 rounded-lg sm:mx-6">
+    <Title className="mb-6 text-3xl">
+      Characteristics
+    </Title>
     <div className="flex flex-row justify-between w-full mx-auto">
       <div className="flex flex-col justify-center w-full px-2 space-y-2 font-bold text-right">
         <p>Name</p>
@@ -11,7 +13,6 @@ const Characteristics = ({ character }) => (
         <p>Nickname</p>
         <p>Potrayed By</p>
         <p>Category</p>
-        <p>Occupation</p>
       </div>
       <div className="flex flex-col justify-center w-full px-2 space-y-2 text-left flex-nowrap">
         <p>{character.name}</p>
