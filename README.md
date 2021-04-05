@@ -1,9 +1,10 @@
 # Taller de Integración T1 - "NextFlix"
 
-**_With 💜, by KnowYourselves_**
 
 Esta aplicación fue desarrollada en NextJS + Tailwindcss, es principalmente
 SSR. Espero que les guste 😄.
+
+**_With 💜, by KnowYourselves_**
 
 ## Estructura general
 
