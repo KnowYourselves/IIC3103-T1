@@ -4,31 +4,35 @@ import Link from '@/elements/link-button';
 import Title from '@/elements/title';
 import Layout from '@/layouts/default';
 
-export default function Series({ name, seasons }) {
+const Series = ({ name, seasons }) => {
+  let imagePath = name;
+  if (name !== 'Better Call Saul' && name !== 'Breaking Bad') {
+    imagePath = 'placeholder';
+  }
+
   return (
-    <Layout>
+    <Layout className="bg-gray-100 rounded-md shadow-lg">
       <Title className="text-2xl">{name}</Title>
       <div className="my-5 h-96">
         <div className="relative h-full max-w-full">
           <Image
-            src={`/images/${name}.png`}
-            alt={name}
+            src={`/images/${imagePath}.png`}
+            alt={imagePath}
             layout="fill"
             objectFit="contain"
             quality={100}
           />
         </div>
       </div>
-      {/* <div className="h-96">
-        <div className="relative w-40 max-w-full mx-auto h-96">
-          <Image src={`/images/${name}.png`} layout="fill" />
-        </div>
-      </div> */}
-      <div className="flex justify-around">
+      <div className="flex">
         {Object.keys(seasons).map((seasonId) => (
-          <Link key={seasonId} href={`/${name}/${seasonId}`} label={seasonId} />
+          <div className="flex-grow" key={seasonId}>
+            <Link href={`/${name}/${seasonId}`} label={seasonId} />
+          </div>
         ))}
       </div>
     </Layout>
   );
-}
+};
+
+export default Series;

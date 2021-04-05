@@ -1,26 +1,24 @@
-import Head from 'next/head';
-
 import Title from '@/elements/title';
 import Layout from '@/layouts/default';
 import Series from '@/templates/home/series';
 
 const Home = ({ series }) => (
   <Layout>
-    <Head>
-      <title>NextFlix</title>
-    </Head>
-    <div className="hidden mx-auto mb-10 text-center sm:block">
-      <Title className="text-6xl ">
+    <div className="mx-auto text-center sm:mb-10 ">
+      <Title className="hidden text-6xl sm:block">
         Welcome to
         {' '}
         <span className="text-green-900">Next</span>
         Flix!
       </Title>
+      <p className="max-h-full px-4 py-2 text-2xl text-black sm:hidden">
+        <span className="text-green-900">Next</span>
+        Flix!
+      </p>
     </div>
-    <div className="flex flex-col justify-around space-y-20 text-center sm:flex-row sm:space-y-0 sm:space-x-52">
+    <div className="flex flex-col flex-wrap justify-around space-y-20 text-center sm:flex-row sm:space-y-0">
       {series.map((show) => (
         <div
-          className="flex-grow"
           key={show.name}
         >
           <Series
