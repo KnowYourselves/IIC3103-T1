@@ -1,4 +1,5 @@
 /* eslint-disable no-await-in-loop */
+import Error from 'next/error';
 import Head from 'next/head';
 
 import Characters from '@/templates/characters';
@@ -18,17 +19,20 @@ export const getServerSideProps = async ({ query: { search } }) => {
 
   return {
     props: {
+      errorCode: true,
       characters,
     },
   };
 };
 
-const CharacterPages = ({ characters }) => (
+const CharacterPages = ({ errorCode, characters }) => (
   <>
     <Head>
       <title>Búsqueda</title>
     </Head>
-    <Characters characters={characters} />
+    {errorCode
+      ? <Error statusCode={500} />
+      : <Characters characters={characters} />}
   </>
 );
 

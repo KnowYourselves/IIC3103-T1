@@ -3,7 +3,7 @@ import Head from 'next/head';
 
 import DefaultLayout from '@/layouts/default';
 
-export default function Custom404() {
+export default function Custom500() {
   return (
     <>
       <Head>
