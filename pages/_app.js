@@ -6,7 +6,6 @@ import { ThemeProvider } from 'next-themes';
 import NProgress from 'nprogress';
 
 import AppLayout from '@/layouts/app';
-import ComponentLayout from '@/layouts/default';
 import Footer from '@/modules/footer';
 import Navbar from '@/modules/navbar';
 
@@ -19,9 +18,7 @@ export default function App({ Component, pageProps }) {
     <ThemeProvider attribute="class">
       <AppLayout>
         <Navbar id="navbar" />
-        <ComponentLayout home>
-          <Component {...pageProps} />
-        </ComponentLayout>
+        <Component {...pageProps} />
         <Footer />
       </AppLayout>
     </ThemeProvider>
