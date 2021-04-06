@@ -18,6 +18,7 @@ export const getServerSideProps = async ({ params }) => {
       character.length === 0 ? { name: 'No encontrado' } : character[0]
     ))
   )));
+  episode.air_date = (new Date(episode.air_date)).toDateString();
 
   return {
     props: {
