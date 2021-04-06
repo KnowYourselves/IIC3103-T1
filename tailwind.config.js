@@ -5,9 +5,9 @@ module.exports = {
   ],
   variants: {
     extend: {
-      transitionProperty: ['hover', 'focus', 'dark'],
-      transitionDuration: ['hover', 'focus', 'dark'],
-      transitionTimingFunction: ['hover', 'focus', 'dark'],
+      transitionProperty: ['hover', 'group-hover', 'focus', 'dark'],
+      transitionDuration: ['hover', 'group-hover', 'focus', 'dark'],
+      transitionTimingFunction: ['hover', 'group-hover', 'focus', 'dark'],
       ringWidth: ['dark'],
     },
   },

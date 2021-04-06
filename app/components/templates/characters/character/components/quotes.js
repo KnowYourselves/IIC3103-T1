@@ -13,6 +13,7 @@ const Quotes = ({ character }) => (
         </>
       ))}
     </ul>
+    { character.quotes.length === 0 && <p className="text-lg place-self-center">No Quotes</p> }
   </div>
 );
 

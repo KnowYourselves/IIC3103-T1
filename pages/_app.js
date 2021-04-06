@@ -14,21 +14,11 @@ Router.events.on('routeChangeStart', () => NProgress.start());
 Router.events.on('routeChangeComplete', () => NProgress.done());
 Router.events.on('routeChangeError', () => NProgress.done());
 
-const MobileTitleCard = () => (
-  <div className="mt-2 text-center">
-    <a href="/" className="max-h-full px-4 text-3xl text-black sm:hidden dark:text-green-300 ">
-      <span className="dark:text-white">Next</span>
-      Flix!
-    </a>
-  </div>
-);
-
 export default function App({ Component, pageProps }) {
   return (
     <ThemeProvider attribute="class">
       <AppLayout>
         <Navbar id="navbar" />
-        <MobileTitleCard />
         <ComponentLayout home>
           <Component {...pageProps} />
         </ComponentLayout>

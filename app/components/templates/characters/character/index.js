@@ -6,7 +6,7 @@ import Series from './components/series';
 
 const Character = ({ character }) => (
   <Layout>
-    <div className="px-4 py-4 space-y-5 bg-gray-300 rounded-lg shadow-xl">
+    <div className="px-4 py-4 space-y-5 bg-gray-300 rounded-lg shadow-xl dark:bg-gray-800">
       <div className="flex flex-col space-y-5 text-center sm:space-y-0 sm:flex-row">
         <div>
           <img

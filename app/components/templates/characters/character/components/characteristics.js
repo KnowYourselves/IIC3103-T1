@@ -1,7 +1,7 @@
 import Title from '@/elements/title';
 
 const Characteristics = ({ character }) => (
-  <div className="flex flex-col justify-center flex-grow py-2 align-middle border-2 border-green-900 rounded-lg sm:mx-6">
+  <div className="flex flex-col justify-center flex-grow py-2 align-middle border-2 border-green-900 rounded-lg dark:border-gray-900 sm:mx-6">
     <Title className="mb-6 text-3xl">
       Characteristics
     </Title>
