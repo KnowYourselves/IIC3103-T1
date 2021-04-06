@@ -3,7 +3,7 @@ import Layout from '@/layouts/default';
 import Series from '@/templates/home/series';
 
 const Home = ({ series }) => (
-  <Layout>
+  <Layout className="py-4">
     <div className="mx-auto text-center sm:mb-10 ">
       <Title className="hidden text-6xl sm:block">
         Welcome to

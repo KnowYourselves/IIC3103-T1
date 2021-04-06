@@ -3,6 +3,7 @@ import Head from 'next/head';
 
 import Error from '@/pages/_error';
 import Characters from '@/templates/characters';
+import compareByValue from '@/utils/compare';
 import fetcher from '@/utils/fetchers';
 
 const fetchCharacters = (search, offset) => fetcher(`/characters?name=${search}&offset=${offset}`);
@@ -27,6 +28,8 @@ export const getServerSideProps = async ({ query: { search } }) => {
       },
     };
   }
+
+  characters.sort(compareByValue('name'));
 
   return {
     props: {

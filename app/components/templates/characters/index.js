@@ -4,7 +4,7 @@ const Characters = ({ characters }) => (
   <>
     {characters.length
       ? (
-        <div className="mx-auto mb-2 text-center">
+        <div className="flex-grow pb-2 mx-auto mb-2 text-center">
           <p className="mt-2 mb-4 text-4xl">Results</p>
           <div className="flex flex-col flex-wrap justify-between mx-auto space-y-3 sm:space-y-0 sm:gap-4 sm:grid sm:grid-cols-2">
             {characters.map((character) => (

@@ -5,7 +5,7 @@ import Quotes from './components/quotes';
 import Series from './components/series';
 
 const Character = ({ character }) => (
-  <Layout>
+  <Layout className="py-4">
     <div className="px-4 py-4 space-y-5 bg-gray-300 rounded-lg shadow-xl dark:bg-gray-800">
       <div className="flex flex-col space-y-5 text-center sm:space-y-0 sm:flex-row">
         <div>
