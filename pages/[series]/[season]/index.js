@@ -1,5 +1,6 @@
 import Head from 'next/head';
 
+import Error from '@/pages/_error';
 import Season from '@/templates/season';
 import fetcher from '@/utils/fetchers';
 
@@ -10,15 +11,31 @@ const filterEpisodesBySeason = (episodes, season) => (
 export const getServerSideProps = async ({ params }) => {
   const { series, season } = params;
 
-  if (!series || !season) {
+  let episodes;
+  try {
+    const allEpisodes = await fetcher(`/episodes?series=${series}`);
+
+    if (!allEpisodes) {
+      return {
+        notFound: true,
+      };
+    }
+
+    episodes = filterEpisodesBySeason(allEpisodes, season);
+
+    if (episodes.length === 0) {
+      return {
+        notFound: true,
+      };
+    }
+  } catch {
     return {
-      notFound: true,
+      props: {
+        error: true,
+        statusCode: 500,
+      },
     };
   }
-
-  const allEpisodes = await fetcher(`/episodes?series=${series}`);
-
-  const episodes = filterEpisodesBySeason(allEpisodes, season);
 
   return {
     props: {
@@ -29,12 +46,16 @@ export const getServerSideProps = async ({ params }) => {
   };
 };
 
-const SeasonPage = ({ series, season, episodes }) => (
+const SeasonPage = ({
+  error, statusCode, series, season, episodes,
+}) => (
   <>
     <Head>
       <title>{series}</title>
     </Head>
-    <Season series={series} season={season} episodes={episodes} />
+    {error
+      ? <Error statusCode={statusCode} />
+      : <Season series={series} season={season} episodes={episodes} />}
   </>
 );
 
