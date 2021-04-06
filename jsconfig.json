@@ -1,13 +1,14 @@
 {
   "compilerOptions": {
-    "baseUrl": "app",
+    "baseUrl": ".",
     "paths": {
-      "@/elements/*": ["components/elements/*"],
-      "@/layouts/*": ["components/layouts/*"],
-      "@/modules/*": ["components/modules/*"],
-      "@/templates/*": ["components/templates/*"],
-      "@/styles/*": ["styles/*"],
-      "@/utils/*": ["utils/*"]
+      "@/elements/*": ["app/components/elements/*"],
+      "@/layouts/*": ["app/components/layouts/*"],
+      "@/modules/*": ["app/components/modules/*"],
+      "@/templates/*": ["app/components/templates/*"],
+      "@/styles/*": ["app/styles/*"],
+      "@/utils/*": ["app/utils/*"],
+      "@/pages/*": ["pages/*"]
     }
   },
   "exclude": ["node_modules", "out", ".next", ".husky"]

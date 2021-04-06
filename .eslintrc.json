@@ -11,7 +11,8 @@
           ["@/modules", "./app/components/modules/"],
           ["@/templates", "./app/components/templates/"],
           ["@/styles", "./app/styles/"],
-          ["@/utils", "./app/utils"]
+          ["@/utils", "./app/utils"],
+          ["@/pages", "./pages"]
         ],
         "extensions": [".js"]
       }

@@ -1,7 +1,7 @@
 /* eslint-disable no-await-in-loop */
-import Error from 'next/error';
 import Head from 'next/head';
 
+import Error from '@/pages/_error';
 import Characters from '@/templates/characters';
 import fetcher from '@/utils/fetchers';
 
@@ -9,29 +9,39 @@ const fetchCharacters = (search, offset) => fetcher(`/characters?name=${search}&
 
 export const getServerSideProps = async ({ query: { search } }) => {
   let offset = 0;
-  let response = await fetchCharacters(search, offset);
-  const characters = response;
-  while (response.length > 0) {
-    offset += 10;
-    response = await fetchCharacters(search, offset);
-    characters.push(...response);
+  let characters;
+
+  try {
+    let response = await fetchCharacters(search, offset);
+    characters = response;
+    while (response.length > 0) {
+      offset += 10;
+      response = await fetchCharacters(search, offset);
+      characters.push(...response);
+    }
+  } catch {
+    return {
+      props: {
+        error: true,
+        statusCode: 500,
+      },
+    };
   }
 
   return {
     props: {
-      errorCode: true,
       characters,
     },
   };
 };
 
-const CharacterPages = ({ errorCode, characters }) => (
+const CharacterPages = ({ error, statusCode, characters }) => (
   <>
     <Head>
       <title>Búsqueda</title>
     </Head>
-    {errorCode
-      ? <Error statusCode={500} />
+    {error
+      ? <Error statusCode={statusCode} />
       : <Characters characters={characters} />}
   </>
 );
