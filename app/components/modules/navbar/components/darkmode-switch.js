@@ -11,7 +11,7 @@ const DarkmodeSwitch = ({ theme, switchTheme, isMounted }) => {
       className="relative w-10 h-auto px-1 py-1 bg-gray-200 hover:ease-in-out hover:transition hover:duration-200 group rounded-3xl hover:bg-gray-600 hover:text-white"
       onClick={switchTheme}
     >
-      {theme === 'dark'
+      {theme === 'light'
         ? <MoonIcon className="text-green-900 dark:text-gray-800 group-hover:text-white" />
         : <SunIcon className="text-green-900 dark:text-gray-800 group-hover:text-white" />}
     </div>
