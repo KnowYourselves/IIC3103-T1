@@ -1,27 +1,23 @@
 import Title from '@/elements/title';
 
 const Characteristics = ({ character }) => (
-  <div className="flex flex-col justify-center flex-grow py-2 align-middle border-2 border-green-900 rounded-lg dark:border-gray-900 sm:mx-6">
+  <div className="flex flex-col justify-center flex-grow p-2 align-middle border-2 border-green-900 rounded-lg dark:border-gray-900 sm:mx-6">
     <Title className="mb-6 text-3xl">
       Characteristics
     </Title>
-    <div className="flex flex-row justify-between w-full mx-auto">
-      <div className="flex flex-col justify-center w-full px-2 space-y-2 font-bold text-right">
-        <p>Name</p>
-        <p>Occupation</p>
-        <p>Status</p>
-        <p>Nickname</p>
-        <p>Potrayed By</p>
-        <p>Category</p>
-      </div>
-      <div className="flex flex-col justify-center w-full px-2 space-y-2 text-left flex-nowrap">
-        <p>{character.name}</p>
-        <p>{character.occupation}</p>
-        <p>{character.status}</p>
-        <p>{character.nickname}</p>
-        <p>{character.portrayed}</p>
-        <p>{character.category}</p>
-      </div>
+    <div className="grid items-center w-full grid-cols-2 px-2 text-center gap-x-5 gap-y-3">
+      <p className="font-bold text-right">Name</p>
+      <p className="text-left">{character.name}</p>
+      <p className="font-bold text-right">Occupation</p>
+      <p className="text-left">{character.occupation}</p>
+      <p className="font-bold text-right">Status</p>
+      <p className="text-left">{character.status}</p>
+      <p className="font-bold text-right">Nickname</p>
+      <p className="text-left">{character.nickname}</p>
+      <p className="font-bold text-right">Potrayed By</p>
+      <p className="text-left">{character.portrayed}</p>
+      <p className="font-bold text-right">Category</p>
+      <p className="text-left">{character.category}</p>
     </div>
   </div>
 );

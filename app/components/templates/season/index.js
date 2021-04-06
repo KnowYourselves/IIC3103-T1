@@ -3,7 +3,7 @@ import Title from '@/elements/title';
 import Layout from '@/layouts/default';
 
 const Season = ({ series, season, episodes }) => (
-  <Layout home>
+  <Layout className="py-4">
     <div className="flex flex-col w-full space-y-5">
       <Title className="text-4xl text-center sm:text-left place-self-center">
         <p className="mb-2 sm:hidden">{series}</p>

@@ -28,13 +28,14 @@ const Series = ({ name, seasons }) => {
         <div className="w-full text-xl font-semibold text-center">
           <p>Seasons</p>
         </div>
-        <div className="flex">
+        <div className="flex flex-wrap">
           {Object.keys(seasons).map((seasonId) => (
-            <div className="flex-grow" key={seasonId}>
+            <div className="flex-grow mx-2 mb-6" key={seasonId}>
               <Link home href={`/${name}/${seasonId}`} label={`S${seasonId}`} />
             </div>
           ))}
         </div>
+
       </div>
     </Layout>
   );

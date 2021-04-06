@@ -1,7 +1,8 @@
 module.exports = {
   purge: [
     './public/**/*.html',
-    './{app,pages}/**/*.{js,jsx,ts,tsx,vue}',
+    './app/**/*.{js,jsx,ts,tsx,vue}',
+    './pages/**/*.{js,jsx,ts,tsx,vue}',
   ],
   variants: {
     extend: {
