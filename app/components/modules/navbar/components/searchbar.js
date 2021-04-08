@@ -23,7 +23,8 @@ const Searchbar = () => {
         onChange={onChange}
       />
       <button
-        className="absolute top-0 right-0 mt-2 mr-4"
+        className="absolute top-0 right-0 mt-2 mr-4 focus:outline-none"
+        onClick={() => onKeyDown({ key: 'Enter' })}
         type="button"
       >
         <svg className="w-6 h-6 text-gray-400 transition dark:group-hover:text-gray-900 hover:duration-200 group-hover:text-green-900" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
